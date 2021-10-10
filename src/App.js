@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Button, message } from 'antd'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/**
+ * 应用的根组件
+ */
+
+
+
+class App extends React.Component {
+
+    handlerClick = ()=> {
+        message.success('This is a success message');
+    }
+
+    render () {
+        return (
+            <div>App2
+                <Button type="primary" onClick = {this.handlerClick}>aaa</Button>
+            </div>
+        )
+    }
 }
 
 export default App;
