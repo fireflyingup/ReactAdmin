@@ -1,6 +1,7 @@
 import React from "react"
-import { Button, message } from 'antd'
-
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
+import Login from "./pages/login/Login"
+import Admin from "./pages/admin/Admin"
 /**
  * 应用的根组件
  */
@@ -9,17 +10,17 @@ import { Button, message } from 'antd'
 
 class App extends React.Component {
 
-    handlerClick = ()=> {
-        message.success('This is a success message');
-    }
 
     render () {
         return (
-            <div>App2
-                <Button type="primary" onClick = {this.handlerClick}>aaa</Button>
-            </div>
+            <BrowserRouter>
+                <Switch>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/admin' component={Admin}></Route>
+                </Switch>
+            </BrowserRouter> 
         )
     }
 }
-
+ 
 export default App;
