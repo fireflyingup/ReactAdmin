@@ -1,4 +1,4 @@
-api:ajax相关
+api: ajax相关
 assets: 公用资源
 components: 非路由组件
 config: 配置
