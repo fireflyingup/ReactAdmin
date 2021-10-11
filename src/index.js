@@ -7,9 +7,4 @@ import App from "./App";
 // import './App.less';
 
 // 将App组件标签渲染到index页面的div上
-ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
-
-
+ReactDOM.render(<App />, document.getElementById("root"));
