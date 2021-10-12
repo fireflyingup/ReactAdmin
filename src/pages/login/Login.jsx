@@ -2,8 +2,11 @@ import React from "react";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.less";
-import logo from "./images/logo.png";
+import logo from "../../assets/images/logo.png";
 import { reqLogin } from "../../api/Api";
+import memoryUtils from "../../utils/memoryUtils";
+import storageUtils from "../../utils/storageUtils";
+import { Redirect } from "react-router";
 
 export default class Login extends React.Component {
     onFinish = async (e) => {
@@ -11,10 +14,18 @@ export default class Login extends React.Component {
         const response = await reqLogin({ username, password });
         console.log(response);
         if (response.status === 0) {
-            this.props.history.push('/admin')
+            memoryUtils.user = response.data;
+            storageUtils.saveUser(response.data);
+            this.props.history.push("/admin");
         }
     };
     render() {
+        // 如果用户已经登陆，跳到管理界面
+        const user = memoryUtils.user;
+        if (user && user.username) {
+            return <Redirect to='/admin'></Redirect>
+        }
+
         return (
             <div className="login">
                 <header className="login-header">

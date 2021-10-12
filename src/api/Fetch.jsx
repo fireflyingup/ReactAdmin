@@ -26,6 +26,7 @@ export default function fetchs(url, data = {}, type) {
             // 失败 -> 不调用reject
             .catch((error) => {
                 message.error(error.message);
+                reject()
             })
             // 成功-> resolve(value )
             .then((data) => {
@@ -33,6 +34,7 @@ export default function fetchs(url, data = {}, type) {
                     resolve(data);
                 } else if (data.status === 500) {
                     message.error(data.error)
+                    reject()
                 }
             });
     });
