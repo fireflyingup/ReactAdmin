@@ -16,6 +16,7 @@ import Pie from "../charts/Pie";
 const { Footer, Sider, Content } = Layout;
 
 export default class Admin extends React.Component {
+
     render() {
         const user = memoryUtils.user;
         if (!user || !user.username) {
@@ -28,7 +29,7 @@ export default class Admin extends React.Component {
                 </Sider>
                 <Layout>
                     <Header></Header>
-                    <Content style={{backgroundColor:'white'}}>
+                    <Content style={{backgroundColor:'white', margin: "20px"}}>
                         <Switch>
                             <Route path='/home' component={Home} />
                             <Route path='/category' component={Category} />
